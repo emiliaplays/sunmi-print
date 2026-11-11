@@ -1,0 +1,38 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Verbindungseinstellungen" Width="465" SizeToContent="Height"
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Background="#F3F5F3"
+        Foreground="#192B28" FontFamily="Inter, Segoe UI" FontSize="14" ShowInTaskbar="False"
+        UseLayoutRounding="True">
+    <StackPanel Margin="23">
+        <TextBlock Text="Verbindungseinstellungen" FontWeight="SemiBold" FontSize="22"/>
+        <TextBlock Text="Wähle, wie Windows den SUNMI über ADB erreicht." Margin="0,6,0,17" TextWrapping="Wrap"/>
+        <Border Background="White" BorderBrush="#D9E1DD" BorderThickness="1" CornerRadius="8" Padding="15">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                    <RadioButton x:Name="Wifi" Content="_WLAN" GroupName="Transport" Margin="0,0,20,0"/>
+                    <RadioButton x:Name="Usb" Content="_USB" GroupName="Transport"/>
+                </StackPanel>
+                <StackPanel x:Name="NetworkFields">
+                    <Label Content="_IPv4-Adresse" Padding="0,0,0,3" Target="{Binding ElementName=Address}"/>
+                    <TextBox x:Name="Address" Padding="7,5" MaxLength="15" Margin="0,0,0,10"/>
+                    <Label Content="ADB-_Port" Padding="0,0,0,3" Target="{Binding ElementName=Port}"/>
+                    <TextBox x:Name="Port" Padding="7,5" MaxLength="5"/>
+                </StackPanel>
+                <StackPanel x:Name="UsbFields" Visibility="Collapsed">
+                    <Label Content="USB-_Seriennummer (optional)" Padding="0,0,0,3" Target="{Binding ElementName=Serial}"/>
+                    <TextBox x:Name="Serial" Padding="7,5" MaxLength="96"/>
+                    <TextBlock Text="Leer lassen, wenn nur ein SUNMI per USB verbunden ist." TextWrapping="Wrap" Margin="0,6,0,0"
+                               Foreground="#526961" FontSize="12"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <TextBlock Text="Beim ersten Verbinden installiert die App eine Druckbrücke auf dem SUNMI."
+                   TextWrapping="Wrap" Margin="0,12,0,0" Foreground="#526961" FontSize="12"/>
+        <TextBlock x:Name="Validation" Foreground="#9B2C21" TextWrapping="Wrap" Margin="0,10,0,0" Visibility="Collapsed"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,18,0,0">
+            <Button Content="_Abbrechen" IsCancel="True" Padding="13,6" Margin="0,0,8,0"/>
+            <Button x:Name="SaveButton" Content="_Speichern" IsDefault="True" Padding="13,6" FontWeight="SemiBold"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

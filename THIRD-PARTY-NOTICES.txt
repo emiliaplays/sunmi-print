@@ -1,0 +1,6 @@
+SUNMI Printer Library 1.0.24
+Entwickler: SUNMI
+https://central.sonatype.com/artifact/com.sunmi/printerlibrary/1.0.24
+
+Die Android-Druckbrücke enthält die SUNMI Printer Library unter der Apache
+License 2.0. Eine Kopie der Lizenz liegt in Apache-2.0.txt bei.

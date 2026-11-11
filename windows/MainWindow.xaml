@@ -1,0 +1,149 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SUNMI Print" Width="990" Height="705" MinWidth="760" MinHeight="555"
+        WindowStartupLocation="CenterScreen" Background="#F3F5F3" Foreground="#192B28"
+        FontFamily="Inter, Segoe UI" FontSize="14" UseLayoutRounding="True">
+    <Window.Resources>
+        <Style x:Key="Action" TargetType="Button">
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#192B28"/>
+            <Setter Property="BorderBrush" Value="#CCD7D2"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="MinHeight" Value="36"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Frame" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="7" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Frame" Property="Opacity" Value="0.82"/></Trigger>
+                            <Trigger Property="IsPressed" Value="True"><Setter TargetName="Frame" Property="Opacity" Value="0.67"/></Trigger>
+                            <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Frame" Property="Opacity" Value="0.43"/></Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Mode" TargetType="RadioButton">
+            <Setter Property="Padding" Value="15,7"/>
+            <Setter Property="Foreground" Value="#496059"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="Tab" Background="Transparent" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Tab" Property="Background" Value="#E1EAE5"/></Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Tab" Property="Background" Value="#FFFFFF"/>
+                                <Setter Property="Foreground" Value="#192B28"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Tab" Property="Opacity" Value="0.5"/></Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <Border Background="#142C26" Padding="25,19">
+            <Grid>
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="SUNMI Print" Foreground="White" FontWeight="SemiBold" FontSize="26"/>
+                    <TextBlock x:Name="TargetLabel" Foreground="#AFD1C3" FontSize="13" Margin="0,4,0,0"
+                               TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+                <Button x:Name="ConnectButton" Grid.Column="1" Style="{StaticResource Action}" Margin="12,0,8,0"
+                        Content="_Verbinden" Background="#24463B" BorderBrush="#4D6F64" Foreground="White" VerticalAlignment="Center"/>
+                <Button x:Name="SettingsButton" Grid.Column="2" Style="{StaticResource Action}"
+                        Content="_Einstellungen" Background="#24463B" BorderBrush="#4D6F64" Foreground="White" VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1" Margin="24,22,24,20">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="18"/><ColumnDefinition Width="0.76*" MinWidth="255"/></Grid.ColumnDefinitions>
+            <Border BorderBrush="#D9E1DD" BorderThickness="1" CornerRadius="11" Background="White" Padding="18">
+                <Grid>
+                    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                    <TextBlock Text="Druckinhalt" FontWeight="SemiBold" FontSize="19" Margin="0,0,0,14"/>
+                    <Grid Grid.Row="1" Margin="0,0,0,13">
+                        <Border Background="#EAF0ED" CornerRadius="8" Padding="3" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton x:Name="TextMode" GroupName="ContentMode" Style="{StaticResource Mode}" Content="_Text" IsChecked="True"/>
+                                <RadioButton x:Name="ImageMode" GroupName="ContentMode" Style="{StaticResource Mode}" Content="_Bild"/>
+                            </StackPanel>
+                        </Border>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button x:Name="TemplatesButton" Style="{StaticResource Action}" Content="_Vorlagen ▾" Margin="0,0,7,0"/>
+                            <Button x:Name="OpenButton" Style="{StaticResource Action}" Content="_Datei öffnen"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <TextBox x:Name="Editor" Background="#F9FBFA" Foreground="#192B28" BorderBrush="#D9E1DD"
+                                 BorderThickness="1" FontFamily="Consolas" FontSize="15" Padding="11"
+                                 AcceptsReturn="True" AcceptsTab="True" MaxLength="6000" TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto" AutomationProperties.Name="Bontext"/>
+                        <TextBlock x:Name="EditorHint" Text="Bontext eingeben oder Textdatei öffnen" Margin="13,12"
+                                   FontFamily="Inter, Segoe UI" Foreground="#60736C" IsHitTestVisible="False"/>
+                        <Border x:Name="ImagePanel" Background="#F9FBFA" BorderBrush="#D9E1DD" BorderThickness="1"
+                                CornerRadius="7" Padding="16" Visibility="Collapsed">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock x:Name="ImageName" Text="Kein Bild ausgewählt" FontWeight="SemiBold"
+                                           TextWrapping="Wrap" TextAlignment="Center"/>
+                                <TextBlock Text="PNG, JPEG oder BMP" Margin="0,6,0,0" Foreground="#60736C"
+                                           TextAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+            <Border Grid.Column="2" BorderBrush="#D9E1DD" BorderThickness="1" CornerRadius="11" Background="#E7EEEA">
+                <Grid>
+                    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+                    <Grid Margin="17,16,17,12">
+                        <TextBlock Text="Vorschau" FontWeight="SemiBold" FontSize="19"/>
+                        <TextBlock Text="58-mm-Bonrolle" Foreground="#526961" FontSize="12" VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"/>
+                    </Grid>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                                  Padding="12,5,12,18">
+                        <Border x:Name="Paper" Width="211" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                MinHeight="122" Background="White" BorderBrush="#D0DBD5" BorderThickness="1">
+                            <Grid>
+                                <Image x:Name="Preview" Stretch="Uniform" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                       RenderOptions.BitmapScalingMode="HighQuality" AutomationProperties.Name="Druckvorschau"/>
+                                <TextBlock x:Name="PreviewHint" Text="Dein Beleg erscheint hier" TextAlignment="Center" TextWrapping="Wrap"
+                                           VerticalAlignment="Center" Foreground="#60736C" FontSize="13" Margin="10"/>
+                            </Grid>
+                        </Border>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+        <Border Grid.Row="2" Background="White" BorderBrush="#D9E1DD" BorderThickness="0,1,0,0" Padding="24,13">
+            <Grid>
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                <Grid Margin="0,0,14,0">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                    <Ellipse x:Name="StatusDot" Fill="#849690" Width="9" Height="9" VerticalAlignment="Center" Margin="0,0,9,0"/>
+                    <TextBlock x:Name="StatusLabel" Grid.Column="1" Text="Nicht verbunden" VerticalAlignment="Center"
+                               TextWrapping="Wrap" Foreground="#496059" AutomationProperties.LiveSetting="Polite"/>
+                </Grid>
+                <Button x:Name="TestButton" Grid.Column="1" Style="{StaticResource Action}" Content="Test_druck"
+                        VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <Button x:Name="PrintButton" Grid.Column="2" Style="{StaticResource Action}" Content="_Drucken"
+                        Background="#17664D" Foreground="White" BorderBrush="#17664D" FontWeight="SemiBold" MinWidth="110"
+                        VerticalAlignment="Center" IsEnabled="False"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

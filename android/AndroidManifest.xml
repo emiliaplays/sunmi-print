@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.sunmiprint.bridge"
+    android:versionCode="1"
+    android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="32" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <queries>
+        <package android:name="woyou.aidlservice.jiuiv5" />
+    </queries>
+    <application android:label="SUNMI Print" android:allowBackup="false"
+        android:usesCleartextTraffic="false">
+        <service android:name=".PrintBridge" android:exported="true"
+            android:permission="android.permission.DUMP" />
+    </application>
+</manifest>

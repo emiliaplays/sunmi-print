@@ -1,0 +1,39 @@
+MUSTER-VERKAUFSBELEG
+HOME AI DATA CENTER
+TESTDRUCK  |  11.11.2026
+------------------------------
+ARTIKEL / STÜCKPREIS -> SUMME
+
+10x NVIDIA RTX 5090
+  2.799,00 EUR  27.990,00 EUR
+2x AMD EPYC CPU
+  3.190,00 EUR   6.380,00 EUR
+2x Server-Mainboard
+  1.050,00 EUR   2.100,00 EUR
+2x 5-GPU-Serverchassis
+  1.849,00 EUR   3.698,00 EUR
+16x 64 GB ECC-RDIMM
+    299,00 EUR   4.784,00 EUR
+4x 8 TB NVMe-SSD
+    799,00 EUR   3.196,00 EUR
+4x 2 kW Server-Netzteil
+    649,00 EUR   2.596,00 EUR
+2x Lüfterkit + Luftkanal
+    249,00 EUR     498,00 EUR
+1x 25-GbE-Switch
+  1.199,00 EUR   1.199,00 EUR
+2x 25-GbE-NIC + DAC
+    299,00 EUR     598,00 EUR
+1x 24-HE-Serverrack
+    999,00 EUR     999,00 EUR
+2x Rack-PDU
+    359,00 EUR     718,00 EUR
+1x Online-USV
+  2.490,00 EUR   2.490,00 EUR
+2x Kabel- und Montagekit
+    149,00 EUR     298,00 EUR
+------------------------------
+GESAMT           57.544,00 EUR
+
+Alle Positionen und Preise
+sind fiktive Beispiele.
