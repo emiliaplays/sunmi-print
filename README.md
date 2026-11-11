@@ -1,5 +1,7 @@
 # SUNMI Print
 
+[![Windows-Installer herunterladen](https://img.shields.io/badge/Windows-Installer%20herunterladen-17664D?style=for-the-badge)](https://github.com/emiliaplays/sunmi-print/releases/download/v1.0.0/SunmiPrint-Setup-1.0.0.exe)
+
 Windows-App für den eingebauten 58-mm-Bondrucker des SUNMI V2. Sie druckt Texte und Bilder (PNG, JPEG, BMP) und enthält fünf bearbeitbare Vorlagen. Der Installer enthält auch einen fiktiven Verkaufsbeleg für ein Home-AI-Rack.
 
 ## Installieren und drucken
